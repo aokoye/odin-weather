@@ -1,5 +1,3 @@
-import thunder from './icon/thunderstorms-extreme-snow.svg';
-
 const weatherArray = [];
 export async function getWeather() {
   try {
@@ -15,16 +13,6 @@ export async function getWeather() {
     console.log(weatherData.currentConditions.icon);
     console.log(weatherData.description);
 
-    // const arrayPush = [
-    //   weatherData.resolvedAddress,
-    //   weatherData.currentConditions.temp,
-    //   weatherData.currentConditions.conditions,
-    //   weatherData.currentConditions.icon,
-    //   weatherData.description,
-    // ];
-
-    // weatherArray.push(arrayPush);
-
     weatherArray.push(weatherData.resolvedAddress);
     weatherArray.push(weatherData.currentConditions.temp);
     weatherArray.push(weatherData.currentConditions.feelslike);
@@ -34,6 +22,25 @@ export async function getWeather() {
 
     return weatherArray;
   } catch (error) {
+    const response = await fetch(
+      'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/portland/?key=ZA2L8J2JH6VWH96UPLELXJPCG',
+      { mode: 'cors' }
+    );
+    const weatherData = await response.json();
+    console.log(weatherData);
+    console.log(weatherData.resolvedAddress);
+    console.log(weatherData.currentConditions.temp);
+    console.log(weatherData.currentConditions.conditions);
+    console.log(weatherData.currentConditions.icon);
+    console.log(weatherData.description);
+
+    weatherArray.push(weatherData.resolvedAddress);
+    weatherArray.push(weatherData.currentConditions.temp);
+    weatherArray.push(weatherData.currentConditions.feelslike);
+    weatherArray.push(weatherData.currentConditions.conditions);
+    weatherArray.push(weatherData.currentConditions.icon);
+    weatherArray.push(weatherData.description);
+
     console.log('Enter a city.');
     console.log(error);
   }
@@ -49,11 +56,25 @@ export async function displayWeather() {
   const description = document.getElementById('description');
   const newDescription = document.createElement('p');
 
+  const icon = document.getElementById('icon');
+  const image = document.createElement('img');
+
   setTimeout(() => {
     newLocation.textContent = weatherArray[0];
     newTemp.textContent = weatherArray[1];
     newFeel.textContent = 'Feels like: ' + weatherArray[2];
     newDescription.textContent = weatherArray[3];
+
+    async function imageFill() {
+      const imageTitle = weatherArray[4];
+
+      return (image.src = await import(`./icon/${imageTitle}.svg`).then(
+        (mod) => mod.default
+      ));
+    }
+
+    imageFill();
+    icon.appendChild(image);
   }, 1000);
 
   location.appendChild(newLocation);
@@ -61,9 +82,4 @@ export async function displayWeather() {
   feel.appendChild(newFeel);
   description.appendChild(newDescription);
   console.log(weatherArray);
-
-  const icon = document.getElementById('icon');
-  const image = document.createElement('img');
-  image.src = thunder;
-  icon.appendChild(image);
 }

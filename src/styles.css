@@ -5,10 +5,13 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-color: #4a9afa;
 }
 
 .container {
   display: flex;
+  padding: 30px;
+  background-color: rgba(94, 113, 130, 0.1);
 }
 
 #left,
