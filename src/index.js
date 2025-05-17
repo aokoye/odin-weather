@@ -8,5 +8,6 @@ import { getWeather, displayWeather } from './weather';
 // image.src = thunder;
 // icon.appendChild(image);
 
-getWeather();
+let newLocation = 'portland';
+getWeather(newLocation);
 displayWeather();
