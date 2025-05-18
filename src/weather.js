@@ -18,8 +18,8 @@ export async function displayWeather() {
 
   setTimeout(() => {
     newLocation.textContent = weatherArray[0];
-    newTemp.textContent = weatherArray[1];
-    newFeel.textContent = 'Feels like: ' + weatherArray[2];
+    newTemp.textContent = 'Temperature: ' + weatherArray[1] + '\u2109';
+    newFeel.textContent = 'Feels like: ' + weatherArray[2] + '\u2109';
     newDescription.textContent = weatherArray[3];
 
     async function imageFill() {
@@ -171,16 +171,16 @@ tempConvBtn.addEventListener('click', (event) => {
   if (temp.className == 'f') {
     temp.innerHTML = '';
     feel.innerHTML = '';
-    newTemp.textContent = tempC + 'C';
+    newTemp.textContent = 'Temperature: ' + tempC + '\u2103';
     temp.className = 'c';
-    newFeel.textContent = 'Feels like: ' + feelC + 'C';
+    newFeel.textContent = 'Feels like: ' + feelC + '\u2103';
     feel.className = 'c';
   } else {
     temp.innerHTML = '';
     feel.innerHTML = '';
-    newTemp.textContent = weatherArray[1] + 'F';
+    newTemp.textContent = 'Temperature: ' + weatherArray[1] + '\u2109';
     temp.className = 'f';
-    newFeel.textContent = 'Feels like: ' + weatherArray[2] + 'F';
+    newFeel.textContent = 'Feels like: ' + weatherArray[2] + '\u2109';
     feel.className = 'f';
   }
 

@@ -5,13 +5,22 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #4a9afa;
+  /* width: 100vw; */
+  background: url(./background/mthood.jpg);
+  background-size: cover;
 }
 
 .container {
   display: flex;
+  flex-direction: column;
+}
+
+main {
+  display: flex;
+  gap: 50px;
   padding: 30px;
-  background-color: rgba(94, 113, 130, 0.1);
+  background: rgba(226, 237, 240, 0.7);
+  border-radius: 8px;
 }
 
 #left,
@@ -20,7 +29,42 @@ body {
   flex-direction: column;
 }
 
+h1 {
+  font-size: 28px;
+}
+
+#temp-convert {
+  margin-left: 80%;
+  margin-bottom: 20px;
+}
+
+p,
+form {
+  font-size: 20px;
+}
+
+p {
+  margin: 5px 0 5px 0;
+}
+
+#city-search {
+  margin-top: auto;
+}
 img {
-  width: 150px;
+  width: 250px;
   height: auto;
+}
+
+#description {
+  text-align: center;
+}
+
+footer {
+  bottom: 0px;
+  position: absolute;
+  margin-left: 20%;
+  margin-bottom: 5px;
+  padding: 5px;
+  background: rgba(226, 237, 240, 0.7);
+  text-align: center;
 }
