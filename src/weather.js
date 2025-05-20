@@ -1,4 +1,4 @@
-const weatherArray = [];
+export const weatherArray = [];
 let newLocation = '';
 
 export async function displayWeather() {
@@ -12,13 +12,15 @@ export async function displayWeather() {
   const newFeel = document.createElement('p');
   const description = document.getElementById('description');
   const newDescription = document.createElement('p');
+  const tempBtn = document.getElementById('temp-convert');
+  tempBtn.className = 'f';
 
   const icon = document.getElementById('icon');
   const image = document.createElement('img');
 
   setTimeout(() => {
     newLocation.textContent = weatherArray[0];
-    newTemp.textContent = 'Temperature: ' + weatherArray[1] + '\u2109';
+    newTemp.textContent = 'Current temperature: ' + weatherArray[1] + '\u2109';
     newFeel.textContent = 'Feels like: ' + weatherArray[2] + '\u2109';
     newDescription.textContent = weatherArray[3];
 
@@ -162,6 +164,7 @@ tempConvBtn.addEventListener('click', (event) => {
   const newTemp = document.createElement('p');
   const feel = document.getElementById('feels-like');
   const newFeel = document.createElement('p');
+  const tempBtn = document.getElementById('temp-convert');
 
   let tempF = weatherArray[1];
   let feelF = weatherArray[2];
@@ -171,17 +174,19 @@ tempConvBtn.addEventListener('click', (event) => {
   if (temp.className == 'f') {
     temp.innerHTML = '';
     feel.innerHTML = '';
-    newTemp.textContent = 'Temperature: ' + tempC + '\u2103';
+    newTemp.textContent = 'Current temperature: ' + tempC + '\u2103';
     temp.className = 'c';
     newFeel.textContent = 'Feels like: ' + feelC + '\u2103';
     feel.className = 'c';
+    tempBtn.className = 'c';
   } else {
     temp.innerHTML = '';
     feel.innerHTML = '';
-    newTemp.textContent = 'Temperature: ' + weatherArray[1] + '\u2109';
+    newTemp.textContent = 'Current temperature: ' + weatherArray[1] + '\u2109';
     temp.className = 'f';
     newFeel.textContent = 'Feels like: ' + weatherArray[2] + '\u2109';
     feel.className = 'f';
+    tempBtn.className = 'f';
   }
 
   temp.appendChild(newTemp);
