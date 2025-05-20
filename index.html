@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+  <script defer src="main.js"></script></head>
+  <body>
+    <div class="container">
+      <main>
+        <div id="left">
+          <div id="location"></div>
+          <div id="temp"></div>
+          <div id="feels-like"></div>
+          <div id="city-search">
+            <form>
+              <label for="search">Enter a city or zip code:</label>
+              <input type="search" id="search" name="q" />
+              <button id="search-btn"></button>
+            </form>
+          </div>
+        </div>
+        <div id="right">
+          <button id="temp-convert"></button>
+          <div id="icon"></div>
+          <div id="description"></div>
+        </div>
+      </main>
+      <footer>Weather icons by Bas Milius</footer>
+    </div>
+  </body>
+</html>
